@@ -33,6 +33,28 @@
 		--->
 
 
+			<!--- append sa masterfile.txt --->
+			<cffile action="append"                                                                
+						file="Masterfile.text"                                                                
+						output="#CFEvent.data.filename##chr(10)#">
+
+
+			<!--- 
+				cfftp function
+					* check if directory exists
+					* create directory if not existing
+					* transfer the file 
+			--->
+			
+    	<cfftp 
+    	 action="putFile"
+    	 passive="yes"
+    	 remotefile="/DirectoryWatcher" 
+    	 localfile="D:\Jake\CF2016\cfusion\wwwroot\github\onevoix\directoryWatcher\" 
+    	 failifexists="yes"
+    	>
+	
+			
 					             
 	</cffunction>
 
